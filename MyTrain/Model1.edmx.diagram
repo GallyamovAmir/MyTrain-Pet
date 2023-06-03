@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="832dc7670a094d89b48cf6164ad8dcc8" Name="Diagram1">
+        <EntityTypeShape EntityType="MyTrainModel.Cities" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyTrainModel.Places" Width="1.5" PointX="11.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyTrainModel.Role" Width="1.5" PointX="6.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyTrainModel.Routes" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyTrainModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyTrainModel.Tickets" Width="1.5" PointX="8.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyTrainModel.Trains" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyTrainModel.Types" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyTrainModel.Users" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyTrainModel.Wagons" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
+        <AssociationConnector Association="MyTrainModel.FK_Routes_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK_Routes_DepartureCities" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK_Places_Users1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK_Places_Wagons" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK_Tickets_Places" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK_Users_Role1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK__Tickets_Routes" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK_Routes_Trains1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK_Tickets_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK_Tickets_Wagons" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK_Wagons_Trains" ManuallyRouted="false" />
+        <AssociationConnector Association="MyTrainModel.FK_Wagons_Types1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
