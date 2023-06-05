@@ -67,7 +67,7 @@
                 </Grid.RowDefinitions>
 
                 <DockPanel x:Name="MainBar" Background="#97a4e5" Grid.RowSpan="2" Margin="0 0 000 0">
-                    <Grid Margin="0 80 0 0" >
+                    <Grid Margin="0 50 0 0" >
 
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -81,8 +81,8 @@
 
                         <Button Content="Пользователи" Click="UserPage" Grid.Row="0"/>
                         <Button Content="Билеты" Grid.Row="1" Click="FormalizedTicketPage"/>
-                        <Button Grid.Row="2" Content="Города"/>
-                        <Button Grid.Row="3" Content="Поезда и вагоны"/>
+                        <Button Grid.Row="2" Content="Города" Click="CityPage" />
+                        <Button Grid.Row="3" Content="Поезда и вагоны" Click="TrainWagonPage"/>
                         <Button Grid.Row="4" Content="Маршруты"/>
                         <Button Grid.Row="5" Content="Выход" Click="LogOut"/>
 
@@ -90,7 +90,7 @@
                 </DockPanel>
 
                 <!-- Левое Меню Кнопка -->
-                <Button  x:Name="ButtonSideBar" Click="SideBar" Width="50" Height="50" Background="#97a4e5" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0">
+                <Button  x:Name="ButtonSideBar" Click="SideBar" Width="50" Height="50" Background="#97a4e5" Margin="0 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="0" RenderTransformOrigin="0.572,0.137">
                     <StackPanel  Orientation="Vertical">
                         <Line X1="0" Y1="10" X2="30" Y2="10" Stroke="Black" Margin="0 0 0 0"/>
                         <Line X1="0" Y1="10" X2="30" Y2="10" Stroke="Black" Margin="0 0 0 0"/>

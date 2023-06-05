@@ -36,7 +36,7 @@ namespace MyTrain
         private void P1Clients()
         {
             var db = new MyTrainEntities();
-            UsersDataGrid.ItemsSource = db.Users.ToList();
+            UsersDataGrid.ItemsSource = db.Users.Include("Role").ToList();
             UsersDataGrid.MouseDoubleClick += (s, e) =>
             {
                 var cell = UsersDataGrid.CurrentCell;
@@ -52,7 +52,7 @@ namespace MyTrain
         {
             var db = new MyTrainEntities();
 
-            UsersDataGrid.ItemsSource = db.Users.ToList();
+            UsersDataGrid.ItemsSource = db.Users.Include("Role").ToList();
         
             db.Dispose();
 
@@ -62,8 +62,6 @@ namespace MyTrain
         {
             if (selectedUserId == 0)
                 return;
-
-
 
             var db = new MyTrainEntities();
 

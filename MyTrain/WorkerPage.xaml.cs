@@ -12,6 +12,7 @@ namespace MyTrain
     public partial class WorkerPage : Window
     {
         bool SideBarFlag;
+        bool TrainWagonFlag;
         public WorkerPage()
         {
             InitializeComponent();
@@ -99,6 +100,28 @@ namespace MyTrain
         {
             SideBarOC();
             OutputFrame.Content = new FormalizedTicketPage();
+        }
+
+        private void CityPage(object sender, RoutedEventArgs e)
+        {
+            SideBarOC();
+            OutputFrame.Content = new CityPage();
+        }
+
+        private void TrainWagonPage(object sender, RoutedEventArgs e)
+        {
+            SideBarOC();
+             if(!TrainWagonFlag)
+            {
+                OutputFrame.Content = new TrainPage();
+                TrainWagonFlag = true;
+            }
+             else
+            {
+                OutputFrame.Content = new WagonPage();
+                TrainWagonFlag = false;
+            }
+           
         }
     }
 }
