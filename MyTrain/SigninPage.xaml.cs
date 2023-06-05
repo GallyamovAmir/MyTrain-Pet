@@ -25,28 +25,10 @@ namespace MyTrain
 
         }
 
-        private void TBPhoneNumber(object sender, TextChangedEventArgs e)
+        private void TB(object sender, TextChangedEventArgs e)
         {
-            if (PhoneNumber.Text.Length < 11)
-            {
-                ButtonAuth.IsEnabled = false;
-            }
-            else
-            {
-                ButtonAuth.IsEnabled = true;
-            }
-        }
+            ButtonAuth.IsEnabled = PhoneNumber.Text.Length >= 11 && Password.Text.Length >= 4;
 
-        private void TBPassword(object sender, TextChangedEventArgs e)
-        {
-            if (Password.Text.Length < 4)
-            {
-                ButtonAuth.IsEnabled = false;
-            }
-            else
-            {
-                ButtonAuth.IsEnabled = true;
-            }
         }
 
 
@@ -57,33 +39,29 @@ namespace MyTrain
             {
                 
                 using (MyTrainEntities db = new MyTrainEntities())
-                {
+                { 
                     Worker = (Users)db.Users.Where(x => x.NumberPhone == PhoneNumber.Text && x.Password == Password.Text).FirstOrDefault();
                 }
-
-                if (Worker.RoleID == 1)
+                if(Worker != null)
                 {
-                    MessageBox.Show($"Добро пожаловать, {Worker.Name} {Worker.MiddleName}!", "Авторизация успешна");
+                    if (Worker.RoleID == 1)
+                    {
+                        MessageBox.Show($"Добро пожаловать, {Worker.Name} {Worker.MiddleName}!", "Авторизация успешна");
 
-                    ValidWorker.name = Worker.Name;
-                    ValidWorker.middlename = Worker.MiddleName;
-                    ValidWorker.password = Worker.Password;
+                        ValidWorker.name = Worker.Name;
+                        ValidWorker.middlename = Worker.MiddleName;
+                        ValidWorker.password = Worker.Password;
 
-                    WorkerPage workerPage = new WorkerPage();
-                    workerPage.Show();
-                    this.Close();
+                        WorkerPage workerPage = new WorkerPage();
+                        workerPage.Show();
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Недостаточно прав", "Ошибка доступа!");
                 }
                 else
-                {
-                    MessageBox.Show("Недостаточно прав", "Ошибка доступа!");
-                }
-
+                    MessageBox.Show("Пользователя с такими данными не существует", "Ошибка доступа!");
             }
-            else
-            {
-                MessageBox.Show("Пользователя с такими данными не существует", "Ошибка доступа!");
-            }
-
         }
     }
 }

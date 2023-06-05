@@ -25,9 +25,9 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <Label Content="Номер телефона" Grid.Column="0"/>
-            <TextBox Grid.Column="1" Height="50" x:Name="PhoneNumber" TextChanged="TBPhoneNumber"/>
+            <TextBox Grid.Column="1" Height="50" x:Name="PhoneNumber" TextChanged="TB"/>
             <Label Content="Пароль" Grid.Column="0" Grid.Row="1" />
-            <TextBox Grid.Column="1" Grid.Row="1" Height="50" x:Name="Password" TextChanged="TBPassword"/>
+            <TextBox Grid.Column="1" Grid.Row="1" Height="50" x:Name="Password" TextChanged="TB"/>
         </Grid>
         <Button Content="Войти" Grid.Row="3" Click="Auth" x:Name="ButtonAuth" IsEnabled="False"/>
     </Grid>

@@ -73,6 +73,8 @@ namespace MyTrain
             if (selectedUserId == 0)
                 return;
 
+
+
             var db = new MyTrainEntities();
 
             Users user = db.Users.Find(selectedUserId);

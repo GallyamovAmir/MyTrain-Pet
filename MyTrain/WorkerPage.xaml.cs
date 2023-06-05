@@ -103,5 +103,11 @@ namespace MyTrain
         {
             OutputFrame.Content = null;
         }
+
+        private void FormalizedTicketPage(object sender, RoutedEventArgs e)
+        {
+            SideBarOC();
+            OutputFrame.Content = new FormalizedTicketPage();
+        }
     }
 }

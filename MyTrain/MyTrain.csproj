@@ -67,6 +67,9 @@
     <Compile Include="Cities.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="FormalizedTicketPage.xaml.cs">
+      <DependentUpon>FormalizedTicketPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -174,6 +177,10 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="FormalizedTicketPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SigninPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
