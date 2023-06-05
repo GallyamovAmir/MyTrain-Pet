@@ -8,11 +8,35 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UserPage">
 
+    
     <Page.Resources>
-        <Style TargetType="Label" x:Key="LabelPopUp">
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Height" Value="30"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style TargetType="Label">
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="FontFamily" Value="SF Pro Text"/>
+            <Setter Property="Height" Value="80"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#97a4e5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
         </Style>
     </Page.Resources>
 
@@ -23,14 +47,11 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="55"/>
             <RowDefinition/>
-            <RowDefinition Height="80" />
+            <RowDefinition Height="60" />
         </Grid.RowDefinitions>
-
-        <Label   Grid.Row="0" Grid.Column="0" Content="Клиенты" FontSize="22" Foreground="AliceBlue"/>
-
-        <Grid Grid.Row="1" Grid.Column="0" Margin="5">
+        
+        <Grid Grid.Row="0" Grid.Column="0">
             <ScrollViewer >
                 <DataGrid x:Name="UsersDataGrid">
 
@@ -38,7 +59,7 @@
             </ScrollViewer>
         </Grid>
 
-        <Grid Grid.Row="1" Grid.Column="1">
+        <Grid Grid.Row="0" Grid.Column="1" Height="300" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
@@ -49,14 +70,12 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
 
-            <Label Style="{StaticResource ResourceKey= LabelPopUp}" Grid.Row="1" Content="Имя пользователя"/>
-            <TextBox Grid.Row="1" Height="30" x:Name="UserName"/>
+            <Label Grid.Row="1" Content="Имя пользователя" />
+            <TextBox Grid.Row="1" x:Name="UserName"/>
 
-            <Label Style="{StaticResource ResourceKey= LabelPopUp}" Grid.Row="0" Content="Роль"/>
+            <Label Grid.Row="0" Content="Роль"/>
             <ComboBox Grid.Row="0" Height="30" x:Name="RoleSelector"/>
         </Grid>
-
-        <!-- Редактирование клиентов -->
 
         <Grid  Grid.Row="2" Grid.ColumnSpan="2">
 
@@ -65,8 +84,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button   Grid.Column="2" Content="Удалить пользователя" Margin="10" Click="DeleteUser" />
-            <Button   Grid.Column="1" Content="Изменить роль" Margin="10" Click="ChangeRole"/>
+            <Button  Grid.Column="2" Content="Удалить пользователя" Click="DeleteUser" />
+            <Button  Grid.Column="1" Content="Изменить роль" Click="ChangeRole"/>
         </Grid>
     </Grid>
 </Page>

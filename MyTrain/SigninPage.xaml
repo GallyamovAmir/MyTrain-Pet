@@ -5,30 +5,67 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyTrain"
         mc:Ignorable="d"
-        Title="SigninPage" Height="500" Width="400">
-    <Grid>
+       ResizeMode="NoResize"
+        Title="SigninPage" Height="400" Width="300">
+
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
+
+        <Style TargetType="Label">
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="SF Pro Text"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#97a4e5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Window.Resources>
+    
+    <Grid >
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
             <RowDefinition/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
-        <Label Content="Авторизация" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
-        <Grid Grid.Row="1">
+        <Rectangle Grid.Row="0" Fill="#97a4e5"/>
+       
+        <Label Content="МойПоезд" HorizontalAlignment="Center" Foreground="White" FontSize="35"/>
+
+        <Label Grid.Row="1" Content="Авторизация" FontSize="25" HorizontalAlignment="Center"/>
+        <Grid Grid.Row="2" Margin="20">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
-                <RowDefinition />
             </Grid.RowDefinitions>
             <Label Content="Номер телефона" Grid.Column="0"/>
-            <TextBox Grid.Column="1" Height="50" x:Name="PhoneNumber" TextChanged="TB"/>
+            <TextBox Grid.Column="1" x:Name="PhoneNumber" TextChanged="TB"/>
             <Label Content="Пароль" Grid.Column="0" Grid.Row="1" />
-            <TextBox Grid.Column="1" Grid.Row="1" Height="50" x:Name="Password" TextChanged="TB"/>
+            <TextBox Grid.Column="1" Grid.Row="1" x:Name="Password" TextChanged="TB"/>
         </Grid>
-        <Button Content="Войти" Grid.Row="3" Click="Auth" x:Name="ButtonAuth" IsEnabled="False"/>
+        <Button Margin="20" Height="40" Content="Войти" Grid.Row="3" Click="Auth" x:Name="ButtonAuth" IsEnabled="False"/>
     </Grid>
 </Window>
