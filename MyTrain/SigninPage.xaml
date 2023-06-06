@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MyTrain"
         mc:Ignorable="d"
        ResizeMode="NoResize"
-        Title="SigninPage" Height="400" Width="300">
+        Title="Авторизация" Height="400" Width="300">
 
     <Window.Resources>
         <Style TargetType="TextBox">

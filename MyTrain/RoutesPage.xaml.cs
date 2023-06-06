@@ -76,7 +76,7 @@ namespace MyTrain
         private void P1Route()
         {
             var db = new MyTrainEntities();
-            RouteDataGrid.ItemsSource = db.Routes.Include("Cities").Include("Trains").ToList();
+            RouteDataGrid.ItemsSource = db.Routes.Include("Cities").Include("Cities1").Include("Trains").ToList();
             RouteDataGrid.MouseDoubleClick += (s, e) =>
             {
                 var cell = RouteDataGrid.CurrentCell;
@@ -84,7 +84,7 @@ namespace MyTrain
 
                 selectedRouteId = route.Id;
                 selectedCityId = route.Cities.Id;
-                 selectedCity1Id = route.Cities1.Id;
+                selectedCity1Id = route.Cities1.Id;
                 selectedTrainId = route.Trains.Id;
                 RoutePriceCoupe.Text = (route.PriceCoupe).ToString();
                 RoutePriceEconom.Text = (route.PriceEconom).ToString();
@@ -98,7 +98,7 @@ namespace MyTrain
         {
             var db = new MyTrainEntities();
 
-            RouteDataGrid.ItemsSource = db.Routes.Include("Cities").Include("Trains").ToList();
+            RouteDataGrid.ItemsSource = db.Routes.Include("Cities").Include("Cities1").Include("Trains").ToList();
 
             db.Dispose();
 
@@ -143,6 +143,23 @@ namespace MyTrain
         private void ChangeRoute(object sender, RoutedEventArgs e)
         {
 
+            var db = new MyTrainEntities();
+
+            Routes route = db.Routes.Find(selectedRouteId);
+            route.DepartureDate = Convert.ToDateTime(RouteDepartureDate.Text);
+            route.DepartureCityId = selectedCityId;
+            route.ArrivalCityId = selectedCity1Id;
+            route.ArrivalDate = Convert.ToDateTime(RouteArrivalDate.Text);
+            route.TrainsId = selectedTrainId;
+            route.PriceCoupe = Convert.ToDecimal(RoutePriceCoupe.Text);
+            route.PriceEconom = Convert.ToDecimal(RoutePriceEconom.Text);
+            db.Routes.Add(route);
+            db.SaveChanges();
+
+            MessageBox.Show("Маршрут Изменен", "Успешно");
+            db.Dispose();
+
+            UpdateRoutesGridWithGettingDB();
         }
 
         private void DeleteRoute(object sender, RoutedEventArgs e)

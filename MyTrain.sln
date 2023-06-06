@@ -5,6 +5,8 @@ VisualStudioVersion = 17.2.32519.379
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTrain", "MyTrain\MyTrain.csproj", "{4DA77712-D441-49DC-B2EC-C73BD4CA3E0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTrainUnit", "MyTrainUnit\MyTrainUnit.csproj", "{3398C9B2-E89E-4AF4-A5D1-C0BF289A9186}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4DA77712-D441-49DC-B2EC-C73BD4CA3E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4DA77712-D441-49DC-B2EC-C73BD4CA3E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4DA77712-D441-49DC-B2EC-C73BD4CA3E0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3398C9B2-E89E-4AF4-A5D1-C0BF289A9186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3398C9B2-E89E-4AF4-A5D1-C0BF289A9186}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3398C9B2-E89E-4AF4-A5D1-C0BF289A9186}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3398C9B2-E89E-4AF4-A5D1-C0BF289A9186}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

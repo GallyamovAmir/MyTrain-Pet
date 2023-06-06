@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyTrain"
         mc:Ignorable="d"
-        Title="WorkerPage" Height="550" Width="1000">
+        Title="Панель администратора" Height="550" Width="1000">
 
     <Window.Resources>
         <Style TargetType="TextBox">
