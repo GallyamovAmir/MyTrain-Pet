@@ -123,5 +123,11 @@ namespace MyTrain
             }
            
         }
+
+        private void RoutesPage(object sender, RoutedEventArgs e)
+        {
+            SideBarOC();
+            OutputFrame.Content = new RoutesPage();
+        }
     }
 }

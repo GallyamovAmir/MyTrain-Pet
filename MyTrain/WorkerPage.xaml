@@ -83,7 +83,7 @@
                         <Button Content="Билеты" Grid.Row="1" Click="FormalizedTicketPage"/>
                         <Button Grid.Row="2" Content="Города" Click="CityPage" />
                         <Button Grid.Row="3" Content="Поезда и вагоны" Click="TrainWagonPage"/>
-                        <Button Grid.Row="4" Content="Маршруты"/>
+                        <Button Grid.Row="4" Content="Маршруты" Click="RoutesPage"/>
                         <Button Grid.Row="5" Content="Выход" Click="LogOut"/>
 
                     </Grid>

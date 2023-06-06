@@ -1,0 +1,120 @@
+﻿<Page x:Class="MyTrain.RoutesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MyTrain"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RoutesPage">
+
+    <Page.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Height" Value="30"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="SF Pro Text"/>
+            <Setter Property="Height" Value="80"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#97a4e5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </Page.Resources>
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0">
+            <ScrollViewer>
+                <DataGrid x:Name="RouteDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Width="120" Header="Дата отправления" Binding="{Binding DepartureDate}"/>
+                        <DataGridTextColumn Width="120" Header="Город отправления" Binding="{Binding Cities.City.Name}"/>
+                        <DataGridTextColumn Width="120" Header="Город прибытия" Binding="{Binding Cities.City1.Name}"/>
+                        <DataGridTextColumn Width="120" Header="Дата прибытия" Binding="{Binding DepartureDate}"/>
+                        <DataGridTextColumn Width="80" Header="Поезд" Binding="{Binding Trains.Name}"/>
+                        <DataGridTextColumn Width="120" Header="Цена купе" Binding="{Binding PriceCoupe}"/>
+                        <DataGridTextColumn Width="120" Header="Цена плацкарт" Binding="{Binding PriceEconom}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </ScrollViewer>
+        </Grid>
+
+        <ScrollViewer Grid.Row="0" Grid.Column="1">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0" Content="Дата отправление" />
+            <TextBox Grid.Row="0" x:Name="RouteDepartureDate"/>
+            
+            <Label Grid.Row="1" Content="Город отправления"/>
+            <ComboBox Grid.Row="1" Height="30" x:Name="RouteDepartureCityId"/>
+            
+            <Label Grid.Row="2" Content="Город прибытия"/>
+            <ComboBox Grid.Row="2" Height="30" x:Name="RouteArrivalCityId"/>
+            
+            <Label Grid.Row="3" Content="Дата прибытия" />
+            <TextBox Grid.Row="3" x:Name="RouteArrivalDate"/>
+            
+            <Label Grid.Row="4" Content="Поезд"/>
+            <ComboBox Grid.Row="4" Height="30" x:Name="RouteTrainsId"/>
+
+            <Label Grid.Row="5" Content="Цена купе" />
+            <TextBox Grid.Row="5" x:Name="RoutePriceCoupe"/>
+
+            <Label Grid.Row="6" Content="Цена эконом" />
+            <TextBox Grid.Row="6" x:Name="RoutePriceEconom"/>
+
+        </Grid>
+        </ScrollViewer>
+
+        <Grid  Grid.Row="2" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button  Grid.Column="2" Content="Удалить маршрут" Click="DeleteRoute" />
+            <Button  Grid.Column="1" Content="Изменить маршрут" Click="ChangeRoute"/>
+            <Button  Grid.Column="0" Content="Добавить маршрут" Click="AddRoute"/>
+        </Grid>
+    </Grid>
+</Page>
