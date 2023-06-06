@@ -23,6 +23,7 @@ namespace MyTrain
         int selectedCityId;
         int selectedCity1Id;
         int selectedTrainId;
+        int selectedRouteId;
 
         public RoutesPage()
         {
@@ -81,9 +82,14 @@ namespace MyTrain
                 var cell = RouteDataGrid.CurrentCell;
                 var route = (Routes)cell.Item;
 
+                selectedRouteId = route.Id;
                 selectedCityId = route.Cities.Id;
                  selectedCity1Id = route.Cities1.Id;
                 selectedTrainId = route.Trains.Id;
+                RoutePriceCoupe.Text = (route.PriceCoupe).ToString();
+                RoutePriceEconom.Text = (route.PriceEconom).ToString();
+                RouteDepartureDate.Text = (route.DepartureDate).ToString();
+                RouteArrivalDate.Text = (route.ArrivalDate).ToString();
             };
             db.Dispose();
         }
@@ -100,7 +106,38 @@ namespace MyTrain
 
         private void AddRoute(object sender, RoutedEventArgs e)
         {
+            if (RouteDepartureDate.Text == "")
+                return;
+            if (RouteArrivalDate.Text == "")
+                return;
+            if (selectedCityId == 0)
+                return;
+            if (selectedCity1Id == 0)
+                return;
+            if (selectedTrainId == 0)
+                return;
+            if (RoutePriceCoupe.Text == "")
+                return;
+            if (RoutePriceEconom.Text == "")
+                return;
 
+            var db = new MyTrainEntities();
+
+            Routes route = new Routes();
+            route.DepartureDate = Convert.ToDateTime(RouteDepartureDate.Text);
+            route.DepartureCityId = selectedCityId;
+            route.ArrivalCityId = selectedCity1Id;
+            route.ArrivalDate = Convert.ToDateTime(RouteArrivalDate.Text);
+            route.TrainsId = selectedTrainId;
+            route.PriceCoupe = Convert.ToDecimal(RoutePriceCoupe.Text);
+            route.PriceEconom = Convert.ToDecimal(RoutePriceEconom.Text);
+            db.Routes.Add(route);
+            db.SaveChanges();
+
+            MessageBox.Show("Маршрут добавлен", "Успешно");
+            db.Dispose();
+
+            UpdateRoutesGridWithGettingDB();
         }
 
         private void ChangeRoute(object sender, RoutedEventArgs e)
@@ -110,7 +147,19 @@ namespace MyTrain
 
         private void DeleteRoute(object sender, RoutedEventArgs e)
         {
+            if (selectedRouteId == 0)
+                return;
 
+            var db = new MyTrainEntities();
+
+            db.Routes.Remove(db.Routes.Find(selectedRouteId));
+
+            db.SaveChanges();
+
+            MessageBox.Show("Маршрут удален", "Успешно");
+            db.Dispose();
+
+            UpdateRoutesGridWithGettingDB();
         }
     }
 }

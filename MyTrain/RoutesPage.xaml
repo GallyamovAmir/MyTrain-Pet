@@ -19,6 +19,16 @@
             </Style.Resources>
         </Style>
 
+        <Style TargetType="DatePicker">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Height" Value="33"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5" />
+                </Style>
+            </Style.Resources>
+        </Style>
+
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="Foreground" Value="Black"/>
@@ -55,9 +65,9 @@
                 <DataGrid x:Name="RouteDataGrid" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
                         <DataGridTextColumn Width="120" Header="Дата отправления" Binding="{Binding DepartureDate}"/>
-                        <DataGridTextColumn Width="120" Header="Город отправления" Binding="{Binding Cities.City.Name}"/>
-                        <DataGridTextColumn Width="120" Header="Город прибытия" Binding="{Binding Cities.City1.Name}"/>
-                        <DataGridTextColumn Width="120" Header="Дата прибытия" Binding="{Binding DepartureDate}"/>
+                        <DataGridTextColumn Width="120" Header="Город отправления" Binding="{Binding Cities.Name}"/>
+                        <DataGridTextColumn Width="120" Header="Город прибытия" Binding="{Binding Cities1.Name}"/>
+                        <DataGridTextColumn Width="120" Header="Дата прибытия" Binding="{Binding ArrivalDate}"/>
                         <DataGridTextColumn Width="80" Header="Поезд" Binding="{Binding Trains.Name}"/>
                         <DataGridTextColumn Width="120" Header="Цена купе" Binding="{Binding PriceCoupe}"/>
                         <DataGridTextColumn Width="120" Header="Цена плацкарт" Binding="{Binding PriceEconom}"/>
@@ -83,7 +93,7 @@
             </Grid.RowDefinitions>
             
             <Label Grid.Row="0" Content="Дата отправление" />
-            <TextBox Grid.Row="0" x:Name="RouteDepartureDate"/>
+                <DatePicker Grid.Row="0" x:Name="RouteDepartureDate" />
             
             <Label Grid.Row="1" Content="Город отправления"/>
             <ComboBox Grid.Row="1" Height="30" x:Name="RouteDepartureCityId"/>
@@ -92,7 +102,7 @@
             <ComboBox Grid.Row="2" Height="30" x:Name="RouteArrivalCityId"/>
             
             <Label Grid.Row="3" Content="Дата прибытия" />
-            <TextBox Grid.Row="3" x:Name="RouteArrivalDate"/>
+                <DatePicker Grid.Row="3" x:Name="RouteArrivalDate"/>
             
             <Label Grid.Row="4" Content="Поезд"/>
             <ComboBox Grid.Row="4" Height="30" x:Name="RouteTrainsId"/>
