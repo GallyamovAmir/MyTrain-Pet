@@ -37,7 +37,7 @@ namespace MyTrain
             TrainsDataGrid.MouseDoubleClick += (s, e) =>
             {
                 var cell = TrainsDataGrid.CurrentCell;
-                var train = (Cities)cell.Item;
+                var train = (Trains)cell.Item;
 
                 selectedTrainId = train.Id;
                 TrainName.Text = train.Name;
@@ -57,7 +57,8 @@ namespace MyTrain
 
         private void AddTrain(object sender, RoutedEventArgs e)
         {
-
+            if (string.IsNullOrEmpty(TrainName.Text))
+                return;
             var db = new MyTrainEntities();
 
             Trains train = new Trains();
@@ -74,6 +75,8 @@ namespace MyTrain
 
         private void ChangeTrain(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(TrainName.Text))
+                return;
             if (selectedTrainId == 0)
                 return;
 
@@ -104,6 +107,14 @@ namespace MyTrain
             db.Dispose();
 
             UpdateTrainsGridWithGettingDB();
+        }
+
+        private void CheckerTB(object sender, KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Space)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

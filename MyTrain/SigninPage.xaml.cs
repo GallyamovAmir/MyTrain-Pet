@@ -53,5 +53,13 @@ namespace MyTrain
                     MessageBox.Show("Пользователя с такими данными не существует", "Ошибка доступа!");
             }
         }
+
+        private void CheckerTB(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key == System.Windows.Input.Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

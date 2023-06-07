@@ -62,9 +62,9 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Content="Номер телефона" Grid.Column="0"/>
-            <TextBox Grid.Column="1" x:Name="PhoneNumber" TextChanged="TB"/>
+            <TextBox Grid.Column="1" x:Name="PhoneNumber" TextChanged="TB" PreviewKeyDown="CheckerTB"/>
             <Label Content="Пароль" Grid.Column="0" Grid.Row="1" />
-            <TextBox Grid.Column="1" Grid.Row="1" x:Name="Password" TextChanged="TB"/>
+            <TextBox Grid.Column="1" Grid.Row="1" x:Name="Password" TextChanged="TB" PreviewKeyDown="CheckerTB"/>
         </Grid>
         <Button Margin="20" Height="40" Content="Войти" Grid.Row="3" Click="Auth" x:Name="ButtonAuth" IsEnabled="False"/>
     </Grid>

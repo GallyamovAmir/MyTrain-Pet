@@ -81,5 +81,10 @@ namespace MyTrain
 
             UpdateTicktesGridWithGettingDB();
         }
+
+        private void CheckerTB(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+
+        }
     }
 }

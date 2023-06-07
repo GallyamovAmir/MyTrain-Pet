@@ -44,6 +44,8 @@ namespace MyTrain
 
         private void ChangeCity(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(CityName.Text))
+                return;
             if (selectedCityId == 0)
                 return;
 
@@ -78,6 +80,8 @@ namespace MyTrain
 
         private void AddCity(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(CityName.Text))
+                return;
             var db = new MyTrainEntities();
 
             Cities city = new Cities();
@@ -89,6 +93,14 @@ namespace MyTrain
 
             UpdateCitiesGridWithGettingDB();
             CityName.Text = "";
+        }
+
+        private void CheckerTB(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Space)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

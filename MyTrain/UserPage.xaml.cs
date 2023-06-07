@@ -60,13 +60,17 @@ namespace MyTrain
 
         private void ChangeRole(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(RoleSelector.Text))
+                return;
             if (selectedUserId == 0)
                 return;
 
             var db = new MyTrainEntities();
 
             Users user = db.Users.Find(selectedUserId);
+           
           user.RoleID = selectedRoleId;
+
             db.SaveChanges();
 
             MessageBox.Show("Роль изменена", "Успешно");
@@ -89,6 +93,14 @@ namespace MyTrain
             db.Dispose();
 
             UpdateUsersGridWithGettingDB();
+        }
+
+        private void CheckerTB(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Space)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

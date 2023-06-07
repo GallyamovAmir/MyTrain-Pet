@@ -158,5 +158,13 @@ namespace MyTrain
 
             UpdateWagonsGridWithGettingDB();
         }
+
+        private void CheckerTB(object sender, KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Space)
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

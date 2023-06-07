@@ -79,10 +79,10 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Row="1" Content="Имя пользователя" />
-            <TextBox Grid.Row="1" x:Name="UserName"/>
+            <TextBox Grid.Row="1" x:Name="UserName" IsReadOnly="True"/>
 
             <Label Grid.Row="0" Content="Роль"/>
-            <ComboBox Grid.Row="0" Height="30" x:Name="RoleSelector"/>
+            <ComboBox Grid.Row="0" Height="30" x:Name="RoleSelector" PreviewKeyDown="CheckerTB"/>
         </Grid>
 
         <Grid  Grid.Row="2" Grid.ColumnSpan="2">

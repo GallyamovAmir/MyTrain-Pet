@@ -14,8 +14,8 @@ namespace MyTrainUnit
         {
             var db = new MyTrainEntities();
             //Arrange
-            int Id = 3;
-            int role = 1;
+            int Id = 2;
+            int role = 2;
             int useridbefore;
             int userafter;
             //Act

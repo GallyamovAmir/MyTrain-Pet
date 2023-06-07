@@ -64,7 +64,7 @@
 
 
             <Label  Grid.Row="0" Content="Кому принадлежит билет (Id)"/>
-            <TextBox Grid.Row="0"  x:Name="TBUserId" />
+            <TextBox Grid.Row="0"  x:Name="TBUserId" IsReadOnly="True" PreviewKeyDown="CheckerTB"/>
             <Label  Grid.Row="1" Content="Кому принадлежит билет (Имя)"/>
             <TextBox Grid.Row="1"  x:Name="TBUserName" IsReadOnly="True" />
             <Label  Grid.Row="2" Content="Id"/>

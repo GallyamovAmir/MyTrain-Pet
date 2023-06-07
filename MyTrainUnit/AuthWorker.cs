@@ -14,7 +14,7 @@ namespace MyTrainUnit
             //Arrange
             Users Worker;
             string PhoneNumber = "89625748052";
-            string Password = "qwerty11";
+            string Password = "12345678";
             //Act
 
             using (MyTrainEntities db = new MyTrainEntities())
